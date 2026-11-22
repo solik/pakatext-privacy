@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PakaText Privacy</title>
+<meta name="description" content="What PakaText does and does not do with your reading. It has no server and collects nothing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FBFAF8; --ink:#1C1A17; --muted:#6B655C;
+  --accent:#B96A1E; --rule:rgba(28,26,23,.12); --wash:rgba(185,106,30,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141311; --ink:#ECE8E2; --muted:#9A938A;
+    --accent:#EBA759; --rule:rgba(236,232,226,.15); --wash:rgba(235,167,89,.10);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141311; --ink:#ECE8E2; --muted:#9A938A;
+  --accent:#EBA759; --rule:rgba(236,232,226,.15); --wash:rgba(235,167,89,.10);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Heebo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:17px; line-height:1.65; -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:43rem; margin:0 auto; padding:4rem 16px 6rem}
+header{border-bottom:1px solid var(--rule); padding-bottom:1.75rem; margin-bottom:2.5rem}
+.mast{font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:700; margin:0 0 .6rem}
+h1{font-size:clamp(1.9rem,5vw,2.5rem); line-height:1.15; margin:0 0 .5rem; font-weight:700; text-wrap:balance}
+.date{color:var(--muted); font-size:.9rem; margin:0}
+.jump{margin-top:1.4rem; font-size:.92rem}
+.jump a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--wash); padding-bottom:1px}
+.jump a:hover{border-bottom-color:var(--accent)}
+.jump span{color:var(--muted); margin:0 .5rem}
+section{margin-bottom:4.5rem}
+h2{font-size:1.45rem; margin:3rem 0 .9rem; font-weight:700; line-height:1.25}
+h2:first-of-type{margin-top:0}
+p{margin:0 0 1.1rem}
+.lede{font-size:1.12rem}
+strong{font-weight:700}
+a{color:var(--accent)}
+.claim{
+  border-inline-start:3px solid var(--accent); background:var(--wash);
+  padding:1.1rem 1.25rem; margin:0 0 1.6rem; border-radius:0 8px 8px 0;
+}
+[dir="rtl"] .claim{border-radius:8px 0 0 8px}
+.claim p{margin:0}
+.claim p + p{margin-top:.6rem}
+.tablewrap{overflow-x:auto; margin:0 0 1.6rem; border:1px solid var(--rule); border-radius:10px}
+table{border-collapse:collapse; width:100%; font-size:.95rem; min-width:34rem}
+th,td{text-align:start; padding:.8rem 1rem; border-bottom:1px solid var(--rule); vertical-align:top}
+thead th{font-weight:700; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); background:var(--wash)}
+tbody tr:last-child td{border-bottom:none}
+td:first-child{font-weight:500}
+ul{margin:0 0 1.1rem; padding-inline-start:1.3rem}
+li{margin-bottom:.5rem}
+footer{border-top:1px solid var(--rule); padding-top:1.75rem; color:var(--muted); font-size:.9rem}
+.rtl{direction:rtl; text-align:right}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="mast">PakaText</p>
+  <h1>Privacy</h1>
+  <p class="date">Last updated 22 November 2026</p>
+  <p class="jump"><a href="#en">English</a><span>·</span><a href="#he">עברית</a></p>
+</header>
+
+<section id="en">
+<h2>The short version</h2>
+
+<div class="claim">
+<p><strong>PakaText collects nothing.</strong> There is no account to create, no analytics, no advertising, no tracking and no third-party SDK in the app.</p>
+<p><strong>The developer runs no server.</strong> There is nowhere for your reading to be sent to, because there is no "there".</p>
+</div>
+
+<p class="lede">PakaText turns books and documents <em>you</em> own into audio. It does that work on services <em>you</em> hold accounts with, using API keys you supply. Your material goes from your device to those services and back. It never passes through anything belonging to the developer.</p>
+
+<h2>Where your library lives</h2>
+<p>Everything PakaText makes — the recognised text, the audio, the covers, your marks and notes, and the original photographs or files if you choose to keep them — is stored <strong>on your device and in your own private iCloud container</strong>. That container belongs to your Apple Account. The developer cannot see it, list it or reach it.</p>
+<p>Your API keys are kept in your device's <strong>Keychain</strong>. They are sent to the service they belong to and to nowhere else.</p>
+
+<h2>What leaves your device, and where it goes</h2>
+<p>Every outbound request below is made by your device, directly, under your own credentials where credentials are involved.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>What</th><th>Goes to</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>Pages you photograph, PDFs and EPUBs you import, text you paste</td><td>Anthropic (Claude API)</td><td>To read the pages, pull an article out of a web page, translate, and prepare the text to be spoken. Uses <em>your</em> Anthropic key.</td></tr>
+<tr><td>The prepared text</td><td>ElevenLabs</td><td>To generate the narration audio. Uses <em>your</em> ElevenLabs key.</td></tr>
+<tr><td>The prepared text, only if you choose that engine</td><td>Google Cloud Text-to-Speech</td><td>An alternative voice engine, off by default. Uses <em>your</em> Google key.</td></tr>
+<tr><td>A book's title and author</td><td>Wikipedia, Open Library</td><td>To find a cover and the publication details. No key, no account, nothing about you.</td></tr>
+<tr><td>A link to a post you pasted</td><td>publish.twitter.com</td><td>To read that post's text. Only when you paste such a link.</td></tr>
+<tr><td>A link you pasted</td><td>That website</td><td>To fetch the article you asked for.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Each of those services handles what it receives under <strong>its own terms and privacy policy</strong>, and the usage is billed to your own account with them. Read them: <a href="https://www.anthropic.com/legal/privacy">Anthropic</a>, <a href="https://elevenlabs.io/privacy-policy">ElevenLabs</a>, <a href="https://policies.google.com/privacy">Google</a>.</p>
+
+<h2>Device permissions</h2>
+<ul>
+<li><strong>Camera</strong> — only to photograph pages of a book or an article. The photographs are stored with the item, and are sent to Anthropic to be read.</li>
+<li><strong>Photo library</strong> — only to let you pick pictures of pages you already took.</li>
+</ul>
+<p>PakaText does not ask for contacts, location, microphone, health data or anything else, because it has no use for them.</p>
+
+<h2>Payment</h2>
+<p>PakaText is free for a small library and is unlocked by a <strong>single one-off purchase</strong>. The purchase is handled entirely by Apple. The developer never sees your name, your payment method or any part of your Apple Account — only Apple's confirmation that this device is entitled to the unlocked app.</p>
+<p>The purchase buys the app. It does <strong>not</strong> pay for the recognition or the narration; those remain billed to your own accounts with Anthropic and ElevenLabs.</p>
+
+<h2>Children</h2>
+<p>PakaText is not directed at children and collects no information from anyone, of any age.</p>
+
+<h2>Deleting things</h2>
+<p>Deleting an item in the app removes its text, its audio and its marks from your device and from your iCloud container. Deleting the app and its iCloud data removes everything. There is no copy anywhere else to ask about, because none was ever made.</p>
+<p>What the services above have already received is governed by their own policies, and you control it through your own account with each of them.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the date at the top changes with it.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: <a href="mailto:CONTACT@EXAMPLE.COM">CONTACT@EXAMPLE.COM</a></p>
+</section>
+
+<section id="he" class="rtl" dir="rtl" lang="he">
+<h2>בקצרה</h2>
+
+<div class="claim">
+<p><strong>PakaText לא אוספת כלום.</strong> אין חשבון להירשם אליו, אין אנליטיקס, אין פרסומות, אין מעקב ואין שום SDK של צד שלישי בתוך האפליקציה.</p>
+<p><strong>למפתח אין שרת.</strong> אין לאן לשלוח את מה שאתה קורא, כי אין "לאן".</p>
+</div>
+
+<p class="lede">PakaText הופכת ספרים ומסמכים <em>שלך</em> לאודיו. היא עושה את זה דרך שירותים שיש <em>לך</em> חשבון אצלם, עם מפתחות שאתה מספק. החומר שלך יוצא מהמכשיר שלך אל השירותים האלה וחוזר. הוא לא עובר בשום דבר ששייך למפתח.</p>
+
+<h2>איפה הספרייה שלך יושבת</h2>
+<p>כל מה ש-PakaText מייצרת — הטקסט שזוהה, האודיו, הכריכות, הסימונים וההערות שלך, והצילומים או הקבצים המקוריים אם בחרת לשמור אותם — נשמר <strong>על המכשיר שלך ובתיקיית ה-iCloud הפרטית שלך</strong>. התיקייה הזאת שייכת לחשבון ה-Apple שלך. המפתח לא יכול לראות אותה, לא לרשום אותה ולא להגיע אליה.</p>
+<p>מפתחות ה-API שלך נשמרים ב-<strong>Keychain</strong> של המכשיר. הם נשלחים לשירות שאליו הם שייכים, ולשום מקום אחר.</p>
+
+<h2>מה יוצא מהמכשיר, ולאן</h2>
+<p>כל בקשה שלהלן יוצאת מהמכשיר שלך, ישירות, ותחת האישורים שלך במקום שבו נדרשים כאלה.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>מה</th><th>לאן</th><th>בשביל מה</th></tr></thead>
+<tbody>
+<tr><td>עמודים שצילמת, קובצי PDF ו-EPUB שייבאת, טקסט שהדבקת</td><td>Anthropic (Claude API)</td><td>כדי לקרוא את העמודים, לחלץ כתבה מדף אינטרנט, לתרגם ולהכין את הטקסט להקראה. במפתח ה-Anthropic <em>שלך</em>.</td></tr>
+<tr><td>הטקסט המוכן</td><td>ElevenLabs</td><td>כדי לייצר את האודיו. במפתח ה-ElevenLabs <em>שלך</em>.</td></tr>
+<tr><td>הטקסט המוכן, רק אם בחרת במנוע הזה</td><td>Google Cloud Text-to-Speech</td><td>מנוע קול חלופי, כבוי כברירת מחדל. במפתח ה-Google <em>שלך</em>.</td></tr>
+<tr><td>שם ספר ושם מחבר</td><td>ויקיפדיה, Open Library</td><td>כדי למצוא כריכה ופרטי הוצאה. בלי מפתח, בלי חשבון, בלי שום דבר שקשור אליך.</td></tr>
+<tr><td>קישור לפוסט שהדבקת</td><td>publish.twitter.com</td><td>כדי לקרוא את הטקסט של הפוסט. רק כשאתה מדביק קישור כזה.</td></tr>
+<tr><td>קישור שהדבקת</td><td>אותו אתר</td><td>כדי להביא את הכתבה שביקשת.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>כל אחד מהשירותים האלה מטפל במה שהוא מקבל לפי <strong>התנאים ומדיניות הפרטיות שלו</strong>, והשימוש מחויב בחשבון שלך אצלו: <a href="https://www.anthropic.com/legal/privacy">Anthropic</a>, <a href="https://elevenlabs.io/privacy-policy">ElevenLabs</a>, <a href="https://policies.google.com/privacy">Google</a>.</p>
+
+<h2>הרשאות במכשיר</h2>
+<ul>
+<li><strong>מצלמה</strong> — רק כדי לצלם דפים של ספר או מאמר. הצילומים נשמרים ליד הפריט, ונשלחים ל-Anthropic כדי להיקרא.</li>
+<li><strong>אלבום התמונות</strong> — רק כדי לאפשר לך לבחור צילומי דפים שכבר צילמת.</li>
+</ul>
+<p>PakaText לא מבקשת אנשי קשר, מיקום, מיקרופון, נתוני בריאות או כל דבר אחר, כי אין לה בהם שימוש.</p>
+
+<h2>תשלום</h2>
+<p>PakaText חינמית לספרייה קטנה, ונפתחת ב<strong>תשלום חד-פעמי אחד</strong>. הרכישה מתבצעת כולה אצל Apple. המפתח לא רואה את שמך, לא את אמצעי התשלום שלך ולא שום חלק מחשבון ה-Apple שלך — רק את האישור של Apple שלמכשיר הזה יש זכאות.</p>
+<p>הרכישה קונה את האפליקציה. היא <strong>לא</strong> משלמת על הזיהוי ועל ההקראה; אלה ממשיכים להיות מחויבים בחשבונות שלך ב-Anthropic וב-ElevenLabs.</p>
+
+<h2>ילדים</h2>
+<p>PakaText אינה מיועדת לילדים, ואינה אוספת מידע מאף אחד, בכל גיל.</p>
+
+<h2>מחיקה</h2>
+<p>מחיקת פריט באפליקציה מוחקת את הטקסט שלו, את האודיו ואת הסימונים מהמכשיר ומתיקיית ה-iCloud שלך. מחיקת האפליקציה והנתונים שלה ב-iCloud מוחקת הכול. אין עותק בשום מקום אחר לשאול עליו, כי מעולם לא נוצר כזה.</p>
+<p>מה שהשירותים שלמעלה כבר קיבלו כפוף למדיניות שלהם, ואתה שולט בו דרך החשבון שלך אצל כל אחד מהם.</p>
+
+<h2>שינויים</h2>
+<p>אם המדיניות הזאת תשתנה, התאריך שלמעלה ישתנה איתה.</p>
+
+<h2>יצירת קשר</h2>
+<p>שאלות על המדיניות הזאת: <a href="mailto:CONTACT@EXAMPLE.COM">CONTACT@EXAMPLE.COM</a></p>
+</section>
+
+<footer>
+  <p>PakaText · <span dir="ltr">com.solik.pakatext</span></p>
+</footer>
+
+</div>
+</body>
+</html>
