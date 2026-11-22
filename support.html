@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PakaText Support</title>
+<meta name="description" content="How to set PakaText up, what a recording costs, and what to do when something goes wrong.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FBFAF8; --ink:#1C1A17; --muted:#6B655C;
+  --accent:#B96A1E; --rule:rgba(28,26,23,.12); --wash:rgba(185,106,30,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141311; --ink:#ECE8E2; --muted:#9A938A;
+    --accent:#EBA759; --rule:rgba(236,232,226,.15); --wash:rgba(235,167,89,.10);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141311; --ink:#ECE8E2; --muted:#9A938A;
+  --accent:#EBA759; --rule:rgba(236,232,226,.15); --wash:rgba(235,167,89,.10);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Heebo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:17px; line-height:1.65; -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:43rem; margin:0 auto; padding:4rem 16px 6rem}
+header{border-bottom:1px solid var(--rule); padding-bottom:1.75rem; margin-bottom:2.5rem}
+.mast{font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:700; margin:0 0 .6rem}
+h1{font-size:clamp(1.9rem,5vw,2.5rem); line-height:1.15; margin:0 0 .5rem; font-weight:700; text-wrap:balance}
+.date{color:var(--muted); font-size:.9rem; margin:0}
+.jump{margin-top:1.4rem; font-size:.92rem}
+.jump a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--wash); padding-bottom:1px}
+.jump a:hover{border-bottom-color:var(--accent)}
+.jump span{color:var(--muted); margin:0 .5rem}
+section{margin-bottom:4.5rem}
+h2{font-size:1.45rem; margin:3rem 0 .9rem; font-weight:700; line-height:1.25}
+h2:first-of-type{margin-top:0}
+p{margin:0 0 1.1rem}
+.lede{font-size:1.12rem}
+strong{font-weight:700}
+a{color:var(--accent)}
+.claim{
+  border-inline-start:3px solid var(--accent); background:var(--wash);
+  padding:1.1rem 1.25rem; margin:0 0 1.6rem; border-radius:0 8px 8px 0;
+}
+[dir="rtl"] .claim{border-radius:8px 0 0 8px}
+.claim p{margin:0}
+.claim p + p{margin-top:.6rem}
+.tablewrap{overflow-x:auto; margin:0 0 1.6rem; border:1px solid var(--rule); border-radius:10px}
+table{border-collapse:collapse; width:100%; font-size:.95rem; min-width:34rem}
+th,td{text-align:start; padding:.8rem 1rem; border-bottom:1px solid var(--rule); vertical-align:top}
+thead th{font-weight:700; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); background:var(--wash)}
+tbody tr:last-child td{border-bottom:none}
+td:first-child{font-weight:500}
+ul{margin:0 0 1.1rem; padding-inline-start:1.3rem}
+li{margin-bottom:.5rem}
+h3{font-size:1.08rem; margin:2rem 0 .5rem; font-weight:700; line-height:1.3}
+footer{border-top:1px solid var(--rule); padding-top:1.75rem; color:var(--muted); font-size:.9rem}
+.rtl{direction:rtl; text-align:right}
+</style>
+</head>
+<body>
+h3{font-size:1.08rem;margin:1.8rem 0 .5rem;font-weight:700}
+<div class="wrap">
+
+<header>
+  <p class="mast">PakaText</p>
+  <h1>Support</h1>
+  <p class="date">Last updated 22 November 2026</p>
+  <p class="jump"><a href="#en">English</a><span>·</span><a href="#he">עברית</a><span>·</span><a href="./">Privacy</a></p>
+</header>
+
+<section id="en">
+<h2>Getting started</h2>
+<p class="lede">PakaText does its work through <strong>your own accounts</strong> at two services, using API keys you enter once. Until both are in, the app cannot read a page or speak a word.</p>
+
+<div class="claim">
+<p><strong>1 — An Anthropic key.</strong> Reads the pages you photograph, pulls articles out of web pages, translates, and prepares the text to be spoken. Costs pennies a page. Get one at <a href="https://console.anthropic.com/settings/keys">console.anthropic.com</a>.</p>
+<p><strong>2 — An ElevenLabs key.</strong> The narration itself. This is the expensive part — a whole book costs a few dollars. Get one at <a href="https://elevenlabs.io/app/settings/api-keys">elevenlabs.io</a>.</p>
+</div>
+
+<p>Both go into <strong>Settings</strong> (the profile icon, top right), and are kept in your device's Keychain. You can start without the ElevenLabs key: the voice already on your phone is free, unlimited, and needs no key at all.</p>
+
+<h2>Questions people actually ask</h2>
+
+<h3>What does a book cost to narrate?</h3>
+<p>The app tells you before it starts: how many pages, how much listening, what it takes out of your ElevenLabs allowance, and what preparing the text costs at Claude. Nothing is spent until you answer that question.</p>
+
+<h3>My allowance ran out halfway through.</h3>
+<p>Everything recorded up to that point is kept. When the allowance renews, open the item and press carry on — it resumes from where it stopped rather than starting again.</p>
+
+<h3>Hebrew came out mispronounced.</h3>
+<p>Turn on vowel points for that item (Reading and listening → Pronunciation). Hebrew without them is genuinely ambiguous, and the narration is guessing. Note that the points count as characters at ElevenLabs, so a pointed book costs more.</p>
+
+<h3>A scan lost pages in the middle.</h3>
+<p>The item's facts card shows which printed page numbers are missing. Photograph those pages and use <strong>Add a part to this book</strong> on the item — the new pages join the same book in the right order.</p>
+
+<h3>Two scans of one book became two books.</h3>
+<p>Parts are matched by name, letter for letter. Open one of them, use <strong>Name and parts → Join an existing book</strong>, and pick the other.</p>
+
+<h3>Nothing is syncing between my devices.</h3>
+<p>The library lives in your private iCloud container. Check that both devices are signed into the same Apple Account and that iCloud Drive is on. A large library can take a while on a fresh install; the app says how many items are still coming down.</p>
+
+<h3>I paid, and a new device says the library is limited.</h3>
+<p>Open the purchase screen and press <strong>Restore purchase</strong>. Apple holds the receipt, so it costs nothing and works on every device signed into the same Apple Account.</p>
+
+<h3>Can I get my text and audio out?</h3>
+<p>Yes. Share any item, any marked passage, or a whole book from the share button — as text or as audio. If you kept the original pages, they can be opened and shared too.</p>
+
+<h2>Contact</h2>
+<p>If something here did not answer it: <a href="mailto:CONTACT@EXAMPLE.COM">CONTACT@EXAMPLE.COM</a></p>
+<p>Please say which device and which iOS or macOS version, and what you were doing when it went wrong. If an item is involved, its name helps.</p>
+</section>
+
+<section id="he" class="rtl" dir="rtl" lang="he">
+<h2>איך מתחילים</h2>
+<p class="lede">PakaText עובדת דרך <strong>החשבונות שלך</strong> בשני שירותים, עם מפתחות שאתה מזין פעם אחת. עד ששניהם בפנים, האפליקציה לא יכולה לקרוא דף ולא להגיד מילה.</p>
+
+<div class="claim">
+<p><strong>1 — מפתח Anthropic.</strong> קורא את העמודים שצילמת, מחלץ כתבות מדפי אינטרנט, מתרגם ומכין את הטקסט להקראה. עולה אגורות לעמוד. אפשר ליצור ב-<a href="https://console.anthropic.com/settings/keys">console.anthropic.com</a>.</p>
+<p><strong>2 — מפתח ElevenLabs.</strong> ההקראה עצמה. זה החלק היקר — ספר שלם עולה כמה דולרים. אפשר ליצור ב-<a href="https://elevenlabs.io/app/settings/api-keys">elevenlabs.io</a>.</p>
+</div>
+
+<p>שניהם נכנסים ב<strong>הגדרות</strong> (אייקון הפרופיל למעלה), ונשמרים ב-Keychain של המכשיר. אפשר להתחיל בלי מפתח ElevenLabs: הקול שכבר נמצא בטלפון הוא חינם, בלי הגבלה, ובלי מפתח בכלל.</p>
+
+<h2>שאלות שבאמת נשאלות</h2>
+
+<h3>כמה עולה להקליט ספר?</h3>
+<p>האפליקציה אומרת לפני שהיא מתחילה: כמה עמודים, כמה האזנה, מה זה לוקח מהמכסה שלך ב-ElevenLabs, ומה הכנת הטקסט עולה ב-Claude. שום דבר לא מוצא עד שאתה עונה על השאלה.</p>
+
+<h3>המכסה נגמרה באמצע.</h3>
+<p>כל מה שהוקלט עד שם נשמר. כשהמכסה תתחדש, פתח את הפריט ולחץ להמשיך — ההקלטה ממשיכה מאיפה שעצרה ולא מתחילה מחדש.</p>
+
+<h3>העברית יצאה עם הגייה שגויה.</h3>
+<p>הפעל ניקוד לפריט הזה (קריאה והאזנה ← הגייה). עברית בלי ניקוד היא דו-משמעית באמת, וההקראה מנחשת. שים לב שסימני הניקוד נספרים כתווים ב-ElevenLabs, אז ספר מנוקד עולה יותר.</p>
+
+<h3>בסריקה חסרים עמודים באמצע.</h3>
+<p>כרטיס הפרטים של הפריט מראה אילו מספרי עמודים מודפסים חסרים. צלם אותם והשתמש ב<strong>הוספת חלק לספר הזה</strong> — העמודים החדשים מצטרפים לאותו ספר בסדר הנכון.</p>
+
+<h3>שתי סריקות של אותו ספר נהיו שני ספרים.</h3>
+<p>חלקים נמצאים לפי שם, אות באות. פתח אחד מהם, לך ל<strong>שם וחלקים ← צירוף לספר קיים</strong>, ובחר את השני.</p>
+
+<h3>שום דבר לא מסתנכרן בין המכשירים.</h3>
+<p>הספרייה יושבת בתיקיית ה-iCloud הפרטית שלך. ודא ששני המכשירים מחוברים לאותו חשבון Apple ושה-iCloud Drive דלוק. ספרייה גדולה לוקחת זמן בהתקנה חדשה; האפליקציה אומרת כמה פריטים עוד יורדים.</p>
+
+<h3>שילמתי, ובמכשיר חדש כתוב שהספרייה מוגבלת.</h3>
+<p>פתח את מסך הרכישה ולחץ <strong>שחזור רכישה</strong>. אפל מחזיקה את הקבלה, אז זה לא עולה כלום ועובד בכל מכשיר שמחובר לאותו חשבון Apple.</p>
+
+<h3>אפשר להוציא את הטקסט והאודיו החוצה?</h3>
+<p>כן. אפשר לשתף כל פריט, כל קטע מסומן או ספר שלם מכפתור השיתוף — כטקסט או כאודיו. אם שמרת את העמודים המקוריים, אפשר לפתוח ולשתף גם אותם.</p>
+
+<h2>יצירת קשר</h2>
+<p>אם משהו כאן לא ענה: <a href="mailto:CONTACT@EXAMPLE.COM">CONTACT@EXAMPLE.COM</a></p>
+<p>כדאי לציין איזה מכשיר ואיזו גרסת iOS או macOS, ומה עשית כשזה השתבש. אם מדובר בפריט מסוים, השם שלו עוזר.</p>
+</section>
+
+<footer>
+  <p>PakaText · <span dir="ltr">com.solik.pakatext</span></p>
+</footer>
+
+</div>
+</body>
+</html>
